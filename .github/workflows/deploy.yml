@@ -2,7 +2,7 @@ name: Deploy VitePress docs
 
 on:
   push:
-    branches: [main]
+    branches: [main, feature/config]
   workflow_dispatch:
 
 permissions:
@@ -15,7 +15,7 @@ env:
   CF_DISTRIBUTION_ID: ${{ vars.CF_DISTRIBUTION_ID }}
   ROLE_ARN: ${{ vars.ROLE_ARN }}
   BUILD_DIR: ${{ vars.BUILD_DIR }}
-  CSP_NONCE: ${{ secrets.CSP_NONCE }}
+  CSP_NONCE: ${{ vars.CSP_NONCE }}
 
 jobs:
   build-and-deploy:
