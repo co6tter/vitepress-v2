@@ -25,8 +25,4 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
     ],
   },
-  vite: {
-    html: { cspNonce: process.env.CSP_NONCE },
-  },
-  appearance: false,
 });
