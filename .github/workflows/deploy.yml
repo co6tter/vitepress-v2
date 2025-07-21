@@ -37,9 +37,8 @@ jobs:
       - name: Build VitePress site
         run: |
           npm run docs:build 2>/dev/null || npx vitepress build
-          echo "CSP_NONCE=${{ env.CSP_NONCE }}"
         env:
-          BUILD_NONCE: ${{ env.CSP_NONCE }}
+          CSP_NONCE: ${{ env.CSP_NONCE }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
