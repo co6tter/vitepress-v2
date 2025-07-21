@@ -28,4 +28,5 @@ export default defineConfig({
   vite: {
     html: { cspNonce: process.env.CSP_NONCE },
   },
+  appearance: false,
 });
