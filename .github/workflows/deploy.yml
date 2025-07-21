@@ -15,6 +15,7 @@ env:
   CF_DISTRIBUTION_ID: ${{ vars.CF_DISTRIBUTION_ID }}
   ROLE_ARN: ${{ vars.ROLE_ARN }}
   BUILD_DIR: ${{ vars.BUILD_DIR }}
+  CSP_NONCE: ${{ secrets.CSP_NONCE }}
 
 jobs:
   build-and-deploy:
@@ -36,6 +37,8 @@ jobs:
       - name: Build VitePress site
         run: |
           npm run docs:build 2>/dev/null || npx vitepress build
+        env:
+          BUILD_NONCE: ${{ env.CSP_NONCE }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
