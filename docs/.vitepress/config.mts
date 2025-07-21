@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 
+console.log('cspNonce: ', process.env.CSP_NONCE);
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'VitePress V2',
